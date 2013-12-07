@@ -11,5 +11,5 @@ npm install bower
 
 ```sh
 cd build
-./make.sh
+sh /make.sh
 ```

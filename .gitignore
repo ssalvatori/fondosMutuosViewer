@@ -1,1 +1,5 @@
 /scripts/*
+/js/externals/*
+/css/externals/*
+/images/externals/*
+/dist/*

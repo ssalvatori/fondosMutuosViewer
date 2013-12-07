@@ -1,8 +1,8 @@
 ({
   appDir: "../",
-  baseUrl: "scripts",
-  dir: "../../dist",
+  baseUrl: "js",
+  dir: "../dist",
   name: 'main',
-  mainConfigFile: '../scripts/main.js',
+  mainConfigFile: '../js/main.js',
   optimizeCss: 'standard'
 })
