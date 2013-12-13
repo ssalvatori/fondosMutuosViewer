@@ -4,7 +4,9 @@ require.config({
     paths: {
         underscore: 'externals/underscore',
         backbone:   'externals/backbone',
-        jquery:     'externals/jquery'
+        jquery:     'externals/jquery',
+        text:       'externals/text',
+        moment:     'externals/moment'
     },
     shim: {
     }

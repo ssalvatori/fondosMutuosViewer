@@ -5,11 +5,9 @@ define([
 ], function ($, _, Backbone) {
     'use strict';
     
-    var cityModel = Backbone.Model.extend({
-        
-        
+    var RecordModel = Backbone.Model.extend({
         
     });
-    return cityModel;
+    return RecordModel;
     
 });

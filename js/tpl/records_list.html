@@ -1,0 +1,7 @@
+<% _.each(records, function(record) {%>
+
+<p><%= record.get('name') %></p>
+<em><%= moment(record.get('priceDate')).format('dddd, MMMM Do YYYY') %></em>
+<em><%= record.get('price') %></em>
+
+<% }); %>
