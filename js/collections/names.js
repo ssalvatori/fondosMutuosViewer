@@ -11,16 +11,19 @@ define([
         model:  NamesModel,
         url: 'http://fondosapi.salvatori.cl/fondosMutuos/record/names',
           
-        /*
+        
         parse: function (response) {
             if (response.status === "ok") {
-                console.log(response);
-                return response.names;
+                var result = [];
+                response.names.forEach(function (name) {
+                    result.push({name: name});
+                });
+                return result;
             } else {
                 return;
             }
         }
-        */
+        
     });
     
     return NamesCollection;

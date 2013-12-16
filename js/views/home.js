@@ -37,18 +37,18 @@ define([
         
         initialize: function () {
             console.log("Loading homeView");
-            var that = this;
             
             this.collection = new NamesCollection();
             this.collection.fetch({
-                success: function (names) {
-                    that.$el.children("#listNames").html(_.template(TplNameList, {names: names.models, _: _}));
-                },
-                error: function (error) {
+                success: _.bind(function (names) {
+                    $("#listNames").html(_.template(TplNameList, {names: names.models, _: _}));
+                    this.$el.children("#listNames").html(_.template(TplNameList, {names: names.models, _: _}));
+                },this),
+                error: _.bind(function (error) {
                     console.log(error);
-                    that.$el.children("#content").html(_.template(TplError, {message: "Error getting data"}));
+                    this.$el.children("#content").html(_.template(TplError, {message: "Error getting data"}));
                     alert("Error getting data");
-                }
+                },this)
             });
         },
                 
