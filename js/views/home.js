@@ -4,29 +4,52 @@ define([
     'backbone',
     'moment',
     'collections/records',
-    'text!tpl/records_list.html'
-], function ($, _, Backbone, Moment, RecordsCollection, TplRecordList) {
+    'collections/names',
+    'text!tpl/records_list.html',
+    'text!tpl/names_list.html',
+    'text!tpl/error.html'
+], function ($, _, Backbone, Moment, RecordsCollection, NamesCollection, TplRecordList, TplNameList, TplError) {
 
     'use strict';
     
     var HomeView = Backbone.View.extend({
-        el: $("#wrap"),
+        el: "#wrap",
         
-        initialize: function () {
+        events: {
+            "click .getData": "fetchData"
+        },
+        
+        fetchData : function () {
             var that = this;
-            console.log("Loading homeView");
-            
+            console.log("getting data from server");
             this.collection = new RecordsCollection();
             this.collection.fetch({
                 success: function (records) {
-                    that.$el.html(_.template(TplRecordList, {records: records.models, _: _}));
+                    that.$el.children("#content").html(_.template(TplRecordList, {records: records.models, _: _}));
                 },
                 error: function (error) {
                     console.log(error);
+                    that.$el.children("#content").html(_.template(TplError, {message: "Error getting data"}));
                     alert("Error getting data");
                 }
             });
-
+        },
+        
+        initialize: function () {
+            console.log("Loading homeView");
+            var that = this;
+            
+            this.collection = new NamesCollection();
+            this.collection.fetch({
+                success: function (names) {
+                    that.$el.children("#listNames").html(_.template(TplNameList, {names: names.models, _: _}));
+                },
+                error: function (error) {
+                    console.log(error);
+                    that.$el.children("#content").html(_.template(TplError, {message: "Error getting data"}));
+                    alert("Error getting data");
+                }
+            });
         },
                 
         render : function () {
@@ -34,6 +57,6 @@ define([
         }
 
     });
-
-    return HomeView;
+    
+    return HomeView;    
 });

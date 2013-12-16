@@ -3,9 +3,9 @@ define([
 ], function (Backbone) {
     'use strict';
     
-    var RecordModel = Backbone.Model.extend({
+    var NameModel = Backbone.Model.extend({
         
     });
-    return RecordModel;
+    return NameModel;
     
 });
