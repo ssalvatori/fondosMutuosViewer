@@ -7,28 +7,26 @@ require.config({
         jquery:     'externals/jquery',
         text:       'externals/text',
         moment:     'externals/moment',
-	layoutmanager:	'externals/backbone.layoutmanager'
+	    layoutmanager:	'externals/backbone.layoutmanager'
     },
     shim: {
     }
 });
 
-define(['jquery', 'underscore', 'backbone', 'layoutmanager', 'layout/home'], function ($, _, Backbone, Layoutmanager, HomeLayout) {
+define(['jquery', 'underscore', 'backbone', 'layoutmanager', 'layouts/home'], function ($, _, Backbone, Layoutmanager, HomeLayout) {
     'use strict';
-
-    var homeView = new HomeView();
-
-	var AppRouter = Backbone.Router.extend ({
-		routes: {
-			'': 'home',
-		}
-		home: function() {
-			console.log("home");
-
-			return new HomeLayout();
-
-		},
-	});
+    
+    var Router = Backbone.Router.extend({
+        routes: {
+            "": "index"  
+        },
+        
+        index: function () {
+            
+            var HomeLayout = new HomeLayout();
+            
+        }
+    });
 
     
 });
