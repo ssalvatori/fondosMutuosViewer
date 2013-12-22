@@ -8,7 +8,7 @@
     "jquery": "1.9.1",
     "backbone-amd": "latest",
     "underscore-amd": "latest",
-    "text": "latest",
+    "handlebars": "latest",
     "momentjs": "2.4.0",
     "layoutmanager": "0.9.x"
   }

@@ -17,6 +17,7 @@ cp -rf ../scripts/vendor/momentjs/moment.js ../js/externals/moment.js
 #cp -rf ../scripts/vendor/jquery-ui/ui/jquery.ui.autocomplete.js ../js/externals/jquery.ui.autocomplete.js
 cp -rf ../scripts/vendor/backbone-amd/backbone.js ../js/externals/backbone.js
 cp -rf ../scripts/vendor/layoutmanager/backbone.layoutmanager.js ../js/externals/backbone.layoutmanager.js
+cp -rf ../scripts/vendor/handlebars/handlebars.amd.js ../js/externals/handlebars.js
 #cp -rf ../scripts/vendor/jquery-mobile-bower/js/jquery.mobile-1.3.2.js ../js/externals/jquery.mobile.js
 
 echo "Copying CSS files"

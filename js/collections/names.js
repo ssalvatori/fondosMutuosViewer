@@ -9,9 +9,9 @@ define([
     var NamesCollection = Backbone.Collection.extend({
         
         model:  NamesModel,
-        url: 'http://fondosapi.salvatori.cl/fondosMutuos/record/names',
-          
-        
+        //url: 'http://fondosapi.salvatori.cl/fondosMutuos/record/names',
+        url: 'js/tests/names.json',
+                  
         parse: function (response) {
             if (response.status === "ok") {
                 var result = [];

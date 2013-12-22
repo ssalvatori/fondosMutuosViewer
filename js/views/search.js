@@ -3,39 +3,27 @@ define([
     'underscore',
     'backbone',
     'moment',
-    'collections/names',
-], function ($, _, Backbone, Moment, NamesCollection, TplNameList) {
+], function ($, _, Backbone, Moment) {
 
     'use strict';
     
     var SearchView = Backbone.View.extend({
-        el: "#wrap",
-                        
-        initialize: function () {
-            console.log("Loading searchView");
-            
-            this.collection = new NamesCollection();
-            this.collection.fetch({
-                success: _.bind(function (names) {
-                    $("#listNames").html(_.template(TplNameList, {names: names.models, _: _}));
-                    this.$el.children("#listNames").html(_.template(TplNameList, {names: names.models, _: _}));
-                }, this),
-                error: _.bind(function (error) {
-                    console.log(error);
-                    this.$el.children("#content").html(_.template(TplError, {message: "Error getting data"}));
-                    alert("Error getting data");
-                }, this)
-            });
+        template: 'search',
+                
+        events: {
+            "click .getData": "serchValues"
+        },
+                                
+        serialize: function () {
+            console.log("serialize");
+            return { names: this.collection.toJSON() };
         },
         
-        serialize: function () {
-            return this.render   
-        },
-                
-        render : function () {
-
+        render: function(layout) {
+            console.log("render view");
+            return layout(this).render();   
         }
-
+        
     });
     
     return SearchView;
