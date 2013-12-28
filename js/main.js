@@ -6,7 +6,8 @@ require.config({
         backbone:   'externals/backbone',
         jquery:     'externals/jquery',
         text:       'externals/text',
-        moment:     'externals/moment'
+        moment:     'externals/moment',
+        chart:     'externals/Chart'
     },
     shim: {
     }
